@@ -17,15 +17,15 @@ var startGame = popUp.addEventListener('click', function(){
     popUp.style.display = 'none'
     
     
-    console.log('area',roadBoundingArea)
+    // console.log('area',roadBoundingArea)
     // road.appendChild(playerCar)
     // var roadSections = document.getElementsByClassName('road-section')
     // roadSections[1].appendChild(playerCar)
-    console.log('pos',playerCar.offsetLeft)
+    // console.log('pos',playerCar.offsetLeft)
     // console.log('pos2',playerCar.offsetTop)
     player.x = playerCar.offsetLeft
     // player.y = playerCar.offsetTop
-    console.log('gg',player)
+    // console.log('gg',player)
     createBlockerCars('blocker-cars')
     // road.appendChild(blockerCars) 
     loop()
@@ -43,8 +43,8 @@ var keyDown = document.addEventListener('keydown',function(e){
 var keyUp = document.addEventListener('keyup',function(e){
     e.preventDefault();
     keys[e.key] = false
-    console.log(e.key)
-    console.log('keys',keys)
+    // console.log(e.key)
+    // console.log('keys',keys)
 })
 // const speed = 2
 
@@ -132,7 +132,7 @@ function loop(){
         
         player.x += 5
         playerCar.style.left = player.x + 'px'
-        console.log('p',player.x) 
+        // console.log('p',player.x) 
     }
 
 
@@ -141,6 +141,6 @@ function loop(){
         
         player.x -= 5
         playerCar.style.left = player.x + 'px'
-        console.log('p',playerCar.style.right,'l',player.x) 
+        // console.log('p',playerCar.style.right,'l',player.x) 
     }
 }

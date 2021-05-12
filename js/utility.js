@@ -1,4 +1,6 @@
 var speed = 5
+var carPosition = [42, 175, 315]
+// var carPosition = [42, (2/9)*400, (3/9)*400]
 
 // var blockerCars = document.createElement('div')
 
@@ -22,7 +24,10 @@ function createBlockerCars(classname){
         blockerCars.className = classname
         blockerCars.y = (i * 230)
         blockerCars.style.top = blockerCars.y + 'px'
-        blockerCars.style.left = Math.floor(Math.random() * 300) + 'px'
+        var position = carPosition[Math.floor(Math.random() * carPosition.length)]
+        console.log('pos',Math.floor(Math.random() * carPosition.length))
+        blockerCars.style.left = position + 'px'
+        // blockerCars.style.left = Math.floor(Math.random() * 300) + 'px'
         road.appendChild(blockerCars) 
     }
 }
@@ -46,7 +51,11 @@ function moveBlockerCars(classname){
 
         if(element.y > 800){
             element.y -= 850
-            element.style.left = Math.floor(Math.random() * 400) + 'px'
+        // console.log('pos',Math.floor(Math.random() * carPosition.length))
+            var position = carPosition[Math.floor(Math.random() * carPosition.length)]
+            console.log('pos',Math.floor(Math.random() * carPosition.length))
+            element.style.left = position + 'px'
+            // element.style.left = Math.floor(Math.random() * 400) + 'px'
 
         }
 
