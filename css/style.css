@@ -81,6 +81,19 @@
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover; 
-
 }
+
+.blocker-cars{
+    position: absolute;
+    /* top: calc(100% - 90px);
+    left: calc(50% - 45px/2); */
+    background-image: url('../assets/blocker_car1.png');
+    height: 90px;
+    width: 45px;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+}
+
+
 

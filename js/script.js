@@ -11,6 +11,8 @@ playerCar.className = 'player-car'
 var road = document.getElementById('road')
 var roadBoundingArea = road.getBoundingClientRect()
 
+// createBlockerCars('blocker-cars')
+
 var startGame = popUp.addEventListener('click', function(){
     popUp.style.display = 'none'
     
@@ -24,7 +26,8 @@ var startGame = popUp.addEventListener('click', function(){
     player.x = playerCar.offsetLeft
     // player.y = playerCar.offsetTop
     console.log('gg',player)
-    
+    createBlockerCars('blocker-cars')
+    // road.appendChild(blockerCars) 
     loop()
 })
 
@@ -120,8 +123,10 @@ function loop(){
 
     
     road.appendChild(playerCar)
-    moveElement('left-lane')
-    moveElement('right-lane')
+    // road.appendChild(blockerCars) 
+    moveLane('left-lane')
+    moveLane('right-lane')
+    moveBlockerCars('blocker-cars')
     // console.log('hete')
     if(keys.ArrowRight && player.x < roadBoundingArea.width - playerCar.offsetWidth){
         
@@ -130,57 +135,12 @@ function loop(){
         console.log('p',player.x) 
     }
 
+
+
     if(keys.ArrowLeft && player.x > 0 ){
         
         player.x -= 5
         playerCar.style.left = player.x + 'px'
         console.log('p',playerCar.style.right,'l',player.x) 
     }
-    // boxContainer.canvas.width = document.documentElement.clientWidth
-    // boxContainer.canvas.height = document.documentElement.clientHeight
-    
-
-    
-
-    // for(i = 0; i < circleArray.length; i++){
-
-        
-    //     var circle = circleArray[i]
-    //     boxContainer.fillStyle = circle.color;
-    //     boxContainer.beginPath();
-    //     boxContainer.arc(circle.x, circle.y, circle.r, 0, Math.PI * 2);
-    //     boxContainer.fill();
-    //     circle.updatePosition();
-    //     circle.checkCollision()   
-
-        
-    // }
-};
-
-// var canvas = document.getElementsByTagName('canvas');
-
-//     canvas.width = window.innerWidth;
-//     canvas.height =window.innerHeight;
-// // console.log('hh',canvas,'kk' )
-// canvas[0].addEventListener('click', (e) => {
-//     // console.log('kkk')
-//     clickedItems(e, circleArray); })
-
-// function clickedItems(e, circleArray){
-//     circleArray.forEach((circle, index) => {
-//         const cursor = {
-//           x: e.clientX,
-//           y: e.clientY,
-//         };
-//         console.log('hh',cursor)
-//         console.log('yh', circle.x, circle.y)
-//         const dist = Math.sqrt(Math.pow((circle.x - cursor.x), 2) + Math.pow((circle.y - cursor.y), 2));;
-//         console.log('dd',dist, circle.r)
-//         if (dist <= circle.r * 2) {
-//             console.log('clicked')
-//             // shape.showClickResponse();
-//           circleArray.splice(index, 1);
-//         }
-//       });
-// }
-
+}
