@@ -112,14 +112,16 @@ var keyUp = document.addEventListener('keyup',function(e){
 // }
 
 
-
+createRoadLane('left-lane')
+createRoadLane('right-lane')
 
 function loop(){
     window.requestAnimationFrame(loop);
 
-    createRoadLane('left-lane')
-    createRoadLane('right-lane')
+    
     road.appendChild(playerCar)
+    moveElement('left-lane')
+    moveElement('right-lane')
     // console.log('hete')
     if(keys.ArrowRight && player.x < roadBoundingArea.width - playerCar.offsetWidth){
         

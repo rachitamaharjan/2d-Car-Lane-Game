@@ -31,7 +31,7 @@
 .left-lane, .right-lane{
     background-color: white;
     height: 120px;
-    width: 20px;
+    width: 10px;
     position: absolute;
 }
 
@@ -55,8 +55,10 @@
 }
 
 #pop-up{
+    border-radius: 15px;
+    line-height: 25px;
     margin: 30px;
-    transform: translateY(-350%);
+    transform: translateY(-300%);
     padding: 20px;
     text-align: center;
     background-color: black;
