@@ -16,7 +16,7 @@ var startGame = popUp.addEventListener('click', function(){
     
     
     console.log('area',roadBoundingArea)
-    road.appendChild(playerCar)
+    // road.appendChild(playerCar)
     // var roadSections = document.getElementsByClassName('road-section')
     // roadSections[1].appendChild(playerCar)
     console.log('pos',playerCar.offsetLeft)
@@ -27,8 +27,6 @@ var startGame = popUp.addEventListener('click', function(){
     
     loop()
 })
-
-
 
 
 
@@ -118,6 +116,10 @@ var keyUp = document.addEventListener('keyup',function(e){
 
 function loop(){
     window.requestAnimationFrame(loop);
+
+    createRoadLane('left-lane')
+    createRoadLane('right-lane')
+    road.appendChild(playerCar)
     // console.log('hete')
     if(keys.ArrowRight && player.x < roadBoundingArea.width - playerCar.offsetWidth){
         

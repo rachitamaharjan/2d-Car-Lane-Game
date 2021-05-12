@@ -13,7 +13,8 @@
 #road{
     display: flex;
     position: relative;
-    background-image: url('../assets/road.png');
+    background-color: rgb(48, 45, 45);
+    /* background-image: url('../assets/road.png'); */
     height: 550px;  
     width: calc(100%/2);
     background-position: center; 
@@ -22,13 +23,29 @@
 }
 
 .road-section{
-    width: calc(100%/3);
-    height: 550px;
+    /* width: calc(100%/3);
+    height: 550px; */
     /* background-color: brown; */
+}
+
+.left-lane, .right-lane{
+    background-color: white;
+    height: 120px;
+    width: 20px;
+    position: absolute;
+}
+
+.left-lane{
+    left: calc(100%/3 - 10px);
+}
+
+.right-lane{
+    right: calc(100%/3 - 10px);
 }
 
 #score{
     /* float: left; */
+    border-radius: 15px;
     position: absolute;
     top: 20px;
     right: 20px;
