@@ -67,14 +67,24 @@ function loop(){
         }
         if(keys.ArrowRight && player.x < roadBoundingArea.width - playerCar.offsetWidth){
             
-            player.x += 5
-            playerCar.style.left = player.x + 'px'
+            player.x += 35
+            if (player.x > roadBoundingArea.width - playerCar.offsetWidth){
+                player.x -= 35
+            }
+            else{
+                playerCar.style.left = player.x + 'px'
+            }
         }
 
         if(keys.ArrowLeft && player.x > 0 ){
             
-            player.x -= 5
-            playerCar.style.left = player.x + 'px'
+            player.x -= 35
+            if (player.x < 0){
+                player.x += 35
+            }
+            else{
+                playerCar.style.left = player.x + 'px'
+            }
         }
     }
 }
