@@ -10,6 +10,8 @@ var playerBird =  document.createElement('div')
 playerBird.className = 'player-bird'
 playerBird.y = playerBird.offsetTop
 var gameArea = document.getElementById('game-area')
+var blockerPipes = document.getElementsByClassName('blocker-pipes')
+
 // var roadBoundingArea = road.getBoundingClientRect()
 
 var startGame = popUp[0].addEventListener('click', function(){
@@ -21,7 +23,10 @@ var startGame = popUp[0].addEventListener('click', function(){
     // createRoadLane('right-lane')
     player.playing = true
     player.score = 0
-    createPipes('blocker-pipes')
+    createPipeRow('pipe-row1')
+    createPipeRow('pipe-row2')
+    createPipeRow('pipe-row3')
+
     gameArea.appendChild(playerBird)
 
     
@@ -35,11 +40,9 @@ mainContainer[0].addEventListener('click', flapUp)
     function flapUp(e){
         // if(e.code == 'Space'){
             playerBird.y = playerBird.offsetTop
-            // console.log('insideevent handler', playerBird.y)
             player.velocity += player.upward
             playerBird.y += player.velocity
             playerBird.style.top =  playerBird.y + 'px'
-            console.log('insideevent handler', player.velocity,playerBird.y, playerBird.style.top)
         // }
     }
 
@@ -60,6 +63,7 @@ mainContainer[0].addEventListener('click', flapUp)
 // createRoadLane('right-lane')
 // playerBird.y = playerBird.offsetTop
 function loop(){
+    var blockerPipes = document.getElementsByClassName('blocker-pipes')
     // player.x = parseInt(playerCar.offsetLeft) 
     // playerBird.y = playerBird.offsetTop
     
@@ -72,6 +76,9 @@ function loop(){
         moveBase()
         // gameArea.appendChild(playerBird)
         birdGravity()
+        movePipes('pipe-row1',blockerPipes[0].x)
+        movePipes('pipe-row2',blockerPipes[1].x)
+        movePipes('pipe-row3',blockerPipes[2].x)
         // moveLane('left-lane')
         // moveLane('right-lane')
         // moveBlockerCars('blocker-cars')

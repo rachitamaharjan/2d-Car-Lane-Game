@@ -111,15 +111,35 @@
 }
 
 .blocker-pipes{
-    right: 0;
+    /* right: 0; */
     position: absolute;
     /* top: calc(100% - 90px);
     left: calc(50% - 45px/2); */
     height: 90px;
     width: 52px;
+    /* left: 0; */
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover; 
+}
+
+.pipe-row1{
+    position: absolute;
+    /* right: 0; */
+    left: 1000px;
+}
+
+.pipe-row2{
+    position: absolute;
+    /* right: -900px; */
+    left: 1500px;
+}
+
+.pipe-row3{
+    position: absolute;
+
+    /* right: 900px; */
+    left: 500px;
 }
 
 .pipe-up{
