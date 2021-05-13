@@ -54,6 +54,17 @@ function moveBlockerCars(classname){
             gameOver(finalScore)
         }
 
+        // console.log('score??', element.getBoundingClientRect().bottom , roadBoundingArea.width)
+       
+        if(isPassingOver(element)){
+            player.score = player.score + 5
+        }
+
+
+        if((element.getBoundingClientRect().bottom >= roadBoundingArea.width - 5) && (element.getBoundingClientRect().bottom <= roadBoundingArea.width + 5) ){
+            console.log('score pluss', element.bottom, roadBoundingArea.width)
+        }
+
         if(element.y > 800){
             element.y -= 850
             var position = carPosition[Math.floor(Math.random() * carPosition.length)]
@@ -83,6 +94,15 @@ function gameOver(finalScore){
     player.playing = false
     popUp[0].id = 'visible'
     popUp[0].innerHTML = '<b>Game over!</b> <br/> Final score: <span class = "display-key"> '+ finalScore + '</span><br/> Click to Play Again!'
-    console.log('Game over! Final score:', finalScore)
     player.score = 0    
+}
+
+function isPassingOver(element){
+    for(i = roadBoundingArea.width - 5; i <= roadBoundingArea.width + 5; i++){
+        if(element.getBoundingClientRect().bottom == i){
+            var val = true
+            break
+        }
+    }
+    return val
 }

@@ -12,7 +12,6 @@ var road = document.getElementById('road')
 var roadBoundingArea = road.getBoundingClientRect()
 
 // createBlockerCars('blocker-cars')
-console.log('pp',popUp)
 var startGame = popUp[0].addEventListener('click', function(){
 
     popUp[0].id = 'invisible'
@@ -58,7 +57,6 @@ function loop(){
         window.requestAnimationFrame(loop);
 
         
-        score.innerHTML = 'Score: ' + ++player.score
         // console.log('score', player.score++)
         // console.log('score', player.score++)
         road.appendChild(playerCar)
@@ -68,6 +66,10 @@ function loop(){
         moveLane('left-lane')
         moveLane('right-lane')
         moveBlockerCars('blocker-cars')
+        // if(isPassingOver()){
+        //     player.score = player.score + 5
+        // }
+        score.innerHTML = 'Score: ' + player.score
         // console.log('hete')
         if(keys.ArrowRight && player.x < roadBoundingArea.width - playerCar.offsetWidth){
             
