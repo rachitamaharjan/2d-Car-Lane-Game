@@ -1,5 +1,5 @@
 var speed = 5
-var carPosition = [42, 175, 315]
+var carPosition = [42, 175, 308]
 // var carPosition = [42, (2/9)*400, (3/9)*400]
 
 // var blockerCars = document.createElement('div')
@@ -25,7 +25,7 @@ function createBlockerCars(classname){
         blockerCars.y = (i * 230)
         blockerCars.style.top = blockerCars.y + 'px'
         var position = carPosition[Math.floor(Math.random() * carPosition.length)]
-        console.log('pos',Math.floor(Math.random() * carPosition.length))
+        // console.log('pos',Math.floor(Math.random() * carPosition.length))
         blockerCars.style.left = position + 'px'
         // blockerCars.style.left = Math.floor(Math.random() * 300) + 'px'
         road.appendChild(blockerCars) 
@@ -49,11 +49,15 @@ function moveBlockerCars(classname){
     var elements = document.querySelectorAll('.'+classname)
     elements.forEach(element => {
 
+        // checkCollision(playerCar, element)
+        if(checkCollision(playerCar, element)){
+            alert('Game over!')
+        }
+
         if(element.y > 800){
             element.y -= 850
-        // console.log('pos',Math.floor(Math.random() * carPosition.length))
             var position = carPosition[Math.floor(Math.random() * carPosition.length)]
-            console.log('pos',Math.floor(Math.random() * carPosition.length))
+            // console.log('pos',Math.floor(Math.random() * carPosition.length))
             element.style.left = position + 'px'
             // element.style.left = Math.floor(Math.random() * 400) + 'px'
 
@@ -64,3 +68,13 @@ function moveBlockerCars(classname){
     });
 }
 
+function checkCollision(car1, car2){
+    playerPos = car1.getBoundingClientRect()
+    blockerPos = car2.getBoundingClientRect()
+    // console.log('l',playerPos,blockerPos)
+    
+    if ((playerPos.top > blockerPos.bottom) || (playerPos.bottom < blockerPos.top) || (playerPos.right < blockerPos.left) || (playerPos.left > blockerPos.right)){
+        return 0
+    }
+    else return 1
+}

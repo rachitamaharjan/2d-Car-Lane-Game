@@ -65,6 +65,11 @@
     color: white;
 }
 
+.display-key{
+    font-weight: bold;
+    color: aquamarine;
+}
+
 #pop-up:hover{
     background-color: rgb(88 55 55);
     color: white;
