@@ -63,13 +63,13 @@ function loop(){
         }
         if(keys.ArrowRight && player.x < roadBoundingArea.width - playerCar.offsetWidth){
             
-            player.x += 5
+            player.x += 30
             playerCar.style.left = player.x + 'px'
         }
 
         if(keys.ArrowLeft && player.x > 0 ){
             
-            player.x -= 5
+            player.x -= 30
             playerCar.style.left = player.x + 'px'
         }
     }
