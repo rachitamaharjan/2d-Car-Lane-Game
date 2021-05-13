@@ -4,6 +4,7 @@
     margin-top: 100px;
     background-color: aquamarine;
     border: solid 15px;
+    overflow: hidden;
 }
 
 .main-container{
