@@ -3,7 +3,7 @@ var keys = {
     ArrowRight : false,
 }
 
-var player = { playing: false, score: 0, speed: 5}
+var player = { playing: false, score: 0, speed: 5,}
 var pointsBefore = player.score
 var score = document.getElementById('score')
 var popUp = document.getElementsByClassName('pop-up')
@@ -26,7 +26,7 @@ var startGame = popUp[0].addEventListener('click', function(){
     player.playing = true
     
     player.score = 0
-    player.x = playerCar.offsetLeft
+    // player.x = parseInt(playerCar.offsetLeft) 
 
     createBlockerCars('blocker-cars')
     
@@ -38,7 +38,7 @@ var startGame = popUp[0].addEventListener('click', function(){
 var keyDown = document.addEventListener('keydown',function(e){
     e.preventDefault();
     keys[e.key] = true
-    // console.log(e.key)
+    console.log('k',player.x, playerCar.offsetLeft)
     // console.log('keys',keys)
 })
 
@@ -54,6 +54,8 @@ var keyUp = document.addEventListener('keyup',function(e){
 // createRoadLane('right-lane')
 
 function loop(){
+    player.x = parseInt(playerCar.offsetLeft) 
+
     
     if (player.playing){
         window.requestAnimationFrame(loop);
