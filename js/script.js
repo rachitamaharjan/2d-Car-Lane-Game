@@ -3,7 +3,8 @@ var keys = {
     ArrowRight : false,
 }
 
-var player = { playing: false, score: 0}
+var player = { playing: false, score: 0, speed: 5}
+var pointsBefore = player.score
 var score = document.getElementById('score')
 var popUp = document.getElementsByClassName('pop-up')
 var playerCar =  document.createElement('div')
@@ -15,6 +16,7 @@ var roadBoundingArea = road.getBoundingClientRect()
 var startGame = popUp[0].addEventListener('click', function(){
 
     popUp[0].id = 'invisible'
+    player.speed = 5
     road.innerHTML = ''
     createRoadLane('left-lane')
     createRoadLane('right-lane')
@@ -69,7 +71,13 @@ function loop(){
         // if(isPassingOver()){
         //     player.score = player.score + 5
         // }
-        score.innerHTML = 'Score: ' + player.score
+        score.innerHTML = 'Score: ' + player.score + '<br/> Speed: ' + player.speed
+
+        if (player.score >= pointsBefore+20){
+        // if (player.score % 20 == 0){
+            player.speed += 1
+            pointsBefore = player.score
+        }
         // console.log('hete')
         if(keys.ArrowRight && player.x < roadBoundingArea.width - playerCar.offsetWidth){
             

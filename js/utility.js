@@ -1,4 +1,4 @@
-var speed = 5
+// var player.speed = 5
 var carPosition = [42, 175, 308]
 // var carPosition = [42, (2/9)*400, (3/9)*400]
 
@@ -40,7 +40,7 @@ function moveLane(classname){
             element.y -= 850
         }
 
-        element.y += speed
+        element.y += player.speed
         element.style.top = element.y + 'px'
     });
 }
@@ -53,8 +53,6 @@ function moveBlockerCars(classname){
             var finalScore = player.score
             gameOver(finalScore)
         }
-
-        // console.log('score??', element.getBoundingClientRect().bottom , roadBoundingArea.width)
        
         if(isPassingOver(element)){
             player.score = player.score + 5
@@ -74,7 +72,7 @@ function moveBlockerCars(classname){
 
         }
 
-        element.y += speed
+        element.y += player.speed
         element.style.top = element.y + 'px'
     });
 }
