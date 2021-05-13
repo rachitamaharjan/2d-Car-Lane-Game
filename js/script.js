@@ -3,8 +3,8 @@ var keys = {
     ArrowRight : false,
 }
 
-var player = {}
-
+var player = { score: 0}
+var score = document.getElementById('score')
 var popUp = document.getElementById('pop-up')
 var playerCar =  document.createElement('div')
 playerCar.className = 'player-car'
@@ -16,7 +16,7 @@ var roadBoundingArea = road.getBoundingClientRect()
 var startGame = popUp.addEventListener('click', function(){
     popUp.style.display = 'none'
     
-    
+    player.score = 0
     // console.log('area',roadBoundingArea)
     // road.appendChild(playerCar)
     // var roadSections = document.getElementsByClassName('road-section')
@@ -28,6 +28,7 @@ var startGame = popUp.addEventListener('click', function(){
     // console.log('gg',player)
     createBlockerCars('blocker-cars')
     // road.appendChild(blockerCars) 
+    
     loop()
 })
 
@@ -54,7 +55,9 @@ createRoadLane('right-lane')
 function loop(){
     window.requestAnimationFrame(loop);
 
-    
+    score.innerHTML = 'Score: ' + player.score++
+    // console.log('score', player.score++)
+    // console.log('score', player.score++)
     road.appendChild(playerCar)
     // road.appendChild(blockerCars) 
     // checkCollision(playerCar, )

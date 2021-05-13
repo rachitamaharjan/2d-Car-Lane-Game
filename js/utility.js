@@ -49,9 +49,9 @@ function moveBlockerCars(classname){
     var elements = document.querySelectorAll('.'+classname)
     elements.forEach(element => {
 
-        // checkCollision(playerCar, element)
         if(checkCollision(playerCar, element)){
-            alert('Game over!')
+            console.log('Game over!')
+            player.score = 0
         }
 
         if(element.y > 800){

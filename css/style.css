@@ -44,13 +44,17 @@
 }
 
 #score{
-    /* float: left; */
+    box-sizing: border-box;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    color: white;
     border-radius: 15px;
     position: absolute;
     top: 20px;
     right: 20px;
     background-color: brown;
-    height: 60px;
+    min-height: 40px;
     width: 150px;
 }
 
