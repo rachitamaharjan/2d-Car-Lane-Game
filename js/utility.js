@@ -18,7 +18,7 @@ var mainContainer = document.getElementsByClassName('main-container')
 //     }
 // }
 
-console.log('height',mainContainer[0].offsetHeight,mainContainer[0].style.height)
+// console.log('height',mainContainer[0].offsetHeight,mainContainer[0].style.height)
 
 function createPipes(classname){
     // var topPipe = document.createElement('div')
@@ -39,7 +39,7 @@ function createPipes(classname){
         else{
             blockerPipes.classList.add('pipe-down')
             blockerPipes.y = mainContainer[0].offsetHeight - parseInt(blockerPipes.style.height)
-            console.log('h',blockerPipes.style.height)
+            // console.log('h',blockerPipes.style.height)
             // blockerPipes.y = mainContainer[0].offsetHeight - blockerPipes.height
         }
         blockerPipes.style.top = blockerPipes.y + 'px'
@@ -50,20 +50,60 @@ function createPipes(classname){
 }
 
 function birdGravity(){
-    
-    player.velocity += player.gravity
-    playerBird.y += player.velocity
-    // playerBird.style.top = '200px'
-    playerBird.style.top = playerBird.y + 'px'
-    if(playerBird.y > mainContainer[0].offsetHeight){
-        console.log('down')
-        playerBird.y = parseInt(mainContainer[0].offsetHeight)
-        console.log('llll',playerBird.y)
-        player.velocity = 0
-        playerBird.style.top = (parseInt(mainContainer[0].offsetHeight) - playerBird.offsetHeight) + 'px'
-        console.log('g',playerBird.style.top)
-    }
-    // playerBird.style.top = playerBird.y + 'px'
+    // playerBird.y = playerBird.offsetTop
+    // setTimeout(function(){
+        
+        player.velocity += player.gravity
+        // player.velocity += 0.9
+        playerBird.y += player.velocity
+        // playerBird.style.top = '200px'
+        playerBird.style.top = playerBird.y + 'px'
+
+        
+        if(playerBird.y > mainContainer[0].offsetHeight){
+            // console.log('down')
+            playerBird.y = parseInt(mainContainer[0].offsetHeight)
+            // console.log('llll',playerBird.y)
+            player.velocity = 0
+            playerBird.style.top = (parseInt(mainContainer[0].offsetHeight) - playerBird.offsetHeight) + 'px'
+
+            // console.log('g',playerBird.style.top)
+        }
+
+        if(playerBird.y < 0){
+            console.log('up')
+            playerBird.y = 0
+            // console.log('llll',playerBird.y)
+            player.velocity = 0
+            // playerBird.style.top =  playerBird.offsetHeight + 'px'
+
+            // console.log('g',playerBird.style.top)
+        }
+        
+        mainContainer[0].addEventListener('click', flapUp)
+
+        document.addEventListener('keypress', flapUp)
+        
+        function flapUp(e){
+            // var timer = 0
+            // setInterval(function(){
+            //     playerBird.y --
+            // },2000)
+            // console.log('key',e.code)
+            // if(e.code == 'Space'){
+                // console.log('yes')
+                player.velocity += player.upward
+            //     playerBird.y += player.velocity
+
+            // playerBird.style.top =  player.velocity + 'px'
+            // }
+        }
+        
+    // },300)
+
+
+
+        // playerBird.style.top = playerBird.y + 'px'
     // console.log('top',playerBird.style.top)
 }
 // var base = document.getElementById('base')
