@@ -23,6 +23,10 @@ var startGame = popUp[0].addEventListener('click', function(){
     player.score = 0
     createBlockerCars('blocker-cars')
     window.requestAnimationFrame(loop);
+
+    // console.log('ll',playerCar.getBoundingClientRect())
+    // playerCar.left = playerCar.offsetLeft
+    // console.log('l',playerCar.left)
 })
 
 
@@ -63,13 +67,13 @@ function loop(){
         }
         if(keys.ArrowRight && player.x < roadBoundingArea.width - playerCar.offsetWidth){
             
-            player.x += 30
+            player.x += 5
             playerCar.style.left = player.x + 'px'
         }
 
         if(keys.ArrowLeft && player.x > 0 ){
             
-            player.x -= 30
+            player.x -= 5
             playerCar.style.left = player.x + 'px'
         }
     }

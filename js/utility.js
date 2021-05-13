@@ -1,8 +1,7 @@
-// var player.speed = 5
-var carPosition = [42, 175, 308]
-// var carPosition = [42, (2/9)*400, (3/9)*400]
 
-// var blockerCars = document.createElement('div')
+// division into equal parts [(1/9)*400, (4/9)*400, (7/9)*400]
+var carPosition = [42, 175, 308]
+var range = 5
 
 function distance(x1, y1, x2, y2){
     return Math.sqrt(Math.pow((x2-x1), 2) + Math.pow((y2-y1),2));
@@ -59,7 +58,7 @@ function moveBlockerCars(classname){
         }
 
 
-        if((element.getBoundingClientRect().bottom >= roadBoundingArea.width - 5) && (element.getBoundingClientRect().bottom <= roadBoundingArea.width + 5) ){
+        if((element.getBoundingClientRect().bottom >= roadBoundingArea.width - range) && (element.getBoundingClientRect().bottom <= roadBoundingArea.width + range) ){
             console.log('score pluss', element.bottom, roadBoundingArea.width)
         }
 
@@ -96,7 +95,7 @@ function gameOver(finalScore){
 }
 
 function isPassingOver(element){
-    for(i = roadBoundingArea.width - 5; i <= roadBoundingArea.width + 5; i++){
+    for(i = roadBoundingArea.width - range; i <= roadBoundingArea.width + range; i++){
         if(element.getBoundingClientRect().bottom == i){
             var val = true
             break
