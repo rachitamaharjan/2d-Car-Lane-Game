@@ -2,12 +2,13 @@ var keys = {
     Space : false,
 }
 
-var player = { playing: false, score: 0, speed: 5,}
+var player = { playing: false, score: 0, speed: 5, gravity: 1, velocity: 0}
 var pointsBefore = player.score
 var score = document.getElementById('score')
 var popUp = document.getElementsByClassName('pop-up')
 var playerBird =  document.createElement('div')
 playerBird.className = 'player-bird'
+playerBird.y = playerBird.offsetTop
 var gameArea = document.getElementById('game-area')
 // var roadBoundingArea = road.getBoundingClientRect()
 
@@ -51,6 +52,7 @@ function loop(){
         window.requestAnimationFrame(loop);
         moveBase()
         gameArea.appendChild(playerBird)
+        birdGravity()
         // moveLane('left-lane')
         // moveLane('right-lane')
         // moveBlockerCars('blocker-cars')

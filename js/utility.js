@@ -45,8 +45,26 @@ function createPipes(classname){
         blockerPipes.style.top = blockerPipes.y + 'px'
         
         // blockerPipes.style.left = Math.floor(Math.random() * 300) + 'px'
-        gameArea.appendChild(blockerPipes) 
+        mainContainer[0].appendChild(blockerPipes) 
     }
+}
+
+function birdGravity(){
+    
+    player.velocity += player.gravity
+    playerBird.y += player.velocity
+    // playerBird.style.top = '200px'
+    playerBird.style.top = playerBird.y + 'px'
+    if(playerBird.y > mainContainer[0].offsetHeight){
+        console.log('down')
+        playerBird.y = parseInt(mainContainer[0].offsetHeight)
+        console.log('llll',playerBird.y)
+        player.velocity = 0
+        playerBird.style.top = (parseInt(mainContainer[0].offsetHeight) - playerBird.offsetHeight) + 'px'
+        console.log('g',playerBird.style.top)
+    }
+    // playerBird.style.top = playerBird.y + 'px'
+    // console.log('top',playerBird.style.top)
 }
 // var base = document.getElementById('base')
     // console.log('base.x',base.getBoundingClientRect())

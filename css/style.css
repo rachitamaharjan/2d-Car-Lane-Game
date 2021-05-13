@@ -98,13 +98,13 @@
     cursor: pointer;
 }
 
-.player-car{
+.player-bird{
     position: absolute;
-    top: calc(100% - 90px);
-    left: calc(50% - 45px/2);
-    background-image: url('../assets/player_car.png');
-    height: 90px;
-    width: 45px;
+    top: calc(100%/2);
+    left: 50px;
+    background-image: url('../assets/yellowbird-midflap.png');
+    height: 24px;
+    width: 34px;
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover; 
