@@ -12,15 +12,12 @@ playerBird.y = playerBird.offsetTop
 var gameArea = document.getElementById('game-area')
 var blockerPipes = document.getElementsByClassName('blocker-pipes')
 
-// var roadBoundingArea = road.getBoundingClientRect()
 
 var startGame = popUp[0].addEventListener('click', function(){
 
     popUp[0].id = 'invisible'
-    // player.speed = 5
+    player.speed = 5
     gameArea.innerHTML = ''
-    // createRoadLane('left-lane')
-    // createRoadLane('right-lane')
     player.playing = true
     player.score = 0
     createPipeRow('pipe-row1')
@@ -29,52 +26,30 @@ var startGame = popUp[0].addEventListener('click', function(){
 
     mainContainer[0].appendChild(playerBird)
 
-    
-    // playerBird.y = playerBird.offsetTop
     window.requestAnimationFrame(loop);
 })
 
+// click and press event listeners
 mainContainer[0].addEventListener('click', flapUp)
 
-    document.addEventListener('keypress', flapUp)
-    function flapUp(e){
-        // if(e.code == 'Space'){
-            playerBird.y = playerBird.offsetTop
-            player.velocity += player.upward
-            playerBird.y += player.velocity
-            playerBird.style.top =  playerBird.y + 'px'
-        // }
-    }
+document.addEventListener('keypress', flapUp)
+function flapUp(e){
+    // if(e.code == 'Space'){
+        playerBird.y = playerBird.offsetTop
+        player.velocity += player.upward
+        playerBird.y += player.velocity
+        playerBird.style.top =  playerBird.y + 'px'
+}
 
-// var keyDown = document.addEventListener('keydown',function(e){
-//     e.preventDefault();
-//     keys[e.key] = true
-//     console.log(e.key)
-// })
-
-// var keyUp = document.addEventListener('keyup',function(e){
-//     e.preventDefault();
-//     keys[e.key] = false
-//     // console.log(e.key)
-// })
-
-
-// createRoadLane('left-lane')
-// createRoadLane('right-lane')
-// playerBird.y = playerBird.offsetTop
 function loop(){
+
     var blockerPipes = document.getElementsByClassName('blocker-pipes')
-    // player.x = parseInt(playerCar.offsetLeft) 
-    // playerBird.y = playerBird.offsetTop
     
     if (player.playing){
         // playerBird.y = playerBird.offsetTop
 
-        // console.log('m',playerBird.offsetTop)
-
         window.requestAnimationFrame(loop);
         moveBase()
-        // gameArea.appendChild(playerBird)
         birdGravity()
         movePipes('pipe-row1',blockerPipes[0].x)
         movePipes('pipe-row2',blockerPipes[1].x)
@@ -100,22 +75,12 @@ function loop(){
             
         // })
 
-        // score.innerHTML = 'Score: ' + player.score + '<br/> Speed: ' + player.speed
+        score.innerHTML = 'Score: ' + player.score + '<br/> Speed: ' + player.speed
 
-        // if (player.score >= pointsBefore+20){
-        //     player.speed += 1
-        //     pointsBefore = player.score
-        // }
-        // if(keys.ArrowRight && player.x < roadBoundingArea.width - playerCar.offsetWidth){
-            
-        //     player.x += 35
-        //     if (player.x > roadBoundingArea.width - playerCar.offsetWidth){
-        //         player.x -= 35
-        //     }
-        //     else{
-        //         playerCar.style.left = player.x + 'px'
-        //     }
-        // }
+        if (player.score >= pointsBefore+20){
+            player.speed += 1
+            pointsBefore = player.score
+        }
 
     }
 }

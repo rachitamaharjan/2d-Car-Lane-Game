@@ -1,7 +1,7 @@
 
 // // division into equal parts [(1/9)*400, (4/9)*400, (7/9)*400]
 // var carPosition = [42, 175, 308]
-// var range = 5
+var range = 5
 var baseX = 0
 var mainContainer = document.getElementsByClassName('main-container')
 
@@ -142,13 +142,10 @@ function movePipes(classname){
             gameOver(finalScore)
         }
        
-        // if(isPassingOver(element)){
-        //     player.score = player.score + 5
-        // }
+        if(isPassingOver(element)){
+            player.score = player.score + 1
+        }
 
-
-        // if((element.getBoundingClientRect().bottom >= roadBoundingArea.width - range) && (element.getBoundingClientRect().bottom <= roadBoundingArea.width + range) ){
-        // }
 
         if(element.x < 0){
             element.x += 1700
@@ -181,12 +178,21 @@ function gameOver(finalScore){
     player.score = 0    
 }
 
-// function isPassingOver(element){
-//     for(i = roadBoundingArea.width - range; i <= roadBoundingArea.width + range; i++){
-//         if(element.getBoundingClientRect().bottom == i){
-//             var val = true
-//             break
-//         }
-//     }
-//     return val
-// }
+function isPassingOver(element){
+    for(i = 150 - range; i <= 150 + range; i++){
+        // console.log('check',element.offsetLeft,element.getBoundingClientRect().left)
+        if(element.offsetLeft == i){
+        // if(element.getBoundingClientRect().left == i){
+            var val = true
+            break
+        }
+    }
+    return val
+    // for(i = roadBoundingArea.width - range; i <= roadBoundingArea.width + range; i++){
+    //     if(element.getBoundingClientRect().bottom == i){
+    //         var val = true
+    //         break
+    //     }
+    // }
+    // return val
+}
