@@ -27,7 +27,7 @@ var startGame = popUp[0].addEventListener('click', function(){
     createPipeRow('pipe-row2')
     createPipeRow('pipe-row3')
 
-    gameArea.appendChild(playerBird)
+    mainContainer[0].appendChild(playerBird)
 
     
     // playerBird.y = playerBird.offsetTop

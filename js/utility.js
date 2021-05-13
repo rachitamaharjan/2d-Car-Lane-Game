@@ -59,14 +59,14 @@ function createPipeRow(classname){
         blockerPipes.style.top = blockerPipes.y + 'px'
         // blockerPipes.style.right = pos + 'px'
         // blockerPipes.style.left = Math.floor(Math.random() * 300) + 'px'
-        mainContainer[0].appendChild(blockerPipes) 
+        gameArea.appendChild(blockerPipes) 
         }
     // }
 }
 
 function birdGravity(){
     // playerBird.y = playerBird.offsetTop
-    // setTimeout(function(){
+    setTimeout(function(){
         
         player.velocity += player.gravity
         // player.velocity += 0.9
@@ -96,7 +96,7 @@ function birdGravity(){
         
         
         
-    // },300)
+    },300)
 
 
 
@@ -136,10 +136,11 @@ function movePipes(classname){
     var elements = document.querySelectorAll('.' + classname)
     elements.forEach(element => {
         element.x = element.offsetLeft
-        // if(checkCollision(playerCar, element)){
-        //     var finalScore = player.score
-        //     gameOver(finalScore)
-        // }
+
+        if(checkCollision(playerBird, element)){
+            var finalScore = player.score
+            gameOver(finalScore)
+        }
        
         // if(isPassingOver(element)){
         //     player.score = player.score + 5
@@ -163,22 +164,22 @@ function movePipes(classname){
     });
 }
 
-// function checkCollision(car1, car2){
-//     playerPos = car1.getBoundingClientRect()
-//     blockerPos = car2.getBoundingClientRect()
+function checkCollision(bird, pipe){
+    birdPos = bird.getBoundingClientRect()
+    pipePos = pipe.getBoundingClientRect()
     
-//     if ((playerPos.top > blockerPos.bottom) || (playerPos.bottom < blockerPos.top) || (playerPos.right < blockerPos.left) || (playerPos.left > blockerPos.right)){
-//         return 0
-//     }
-//     else return 1
-// }
+    if ((birdPos.top > pipePos.bottom) || (birdPos.bottom < pipePos.top) || (birdPos.right < pipePos.left) || (birdPos.left > pipePos.right)){
+        return 0
+    }
+    else return 1
+}
 
-// function gameOver(finalScore){
-//     player.playing = false
-//     popUp[0].id = 'visible'
-//     popUp[0].innerHTML = '<b>Game over!</b> <br/> Final score: <span class = "display-key"> '+ finalScore + '</span><br/> Click to Play Again!'
-//     player.score = 0    
-// }
+function gameOver(finalScore){
+    player.playing = false
+    popUp[0].id = 'visible'
+    popUp[0].innerHTML = '<b>Game over!</b> <br/> Final score: <span class = "display-key"> '+ finalScore + '</span><br/> Click to Play Again!'
+    player.score = 0    
+}
 
 // function isPassingOver(element){
 //     for(i = roadBoundingArea.width - range; i <= roadBoundingArea.width + range; i++){
