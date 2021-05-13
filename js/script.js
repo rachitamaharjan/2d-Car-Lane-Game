@@ -20,12 +20,8 @@ var startGame = popUp[0].addEventListener('click', function(){
     createRoadLane('left-lane')
     createRoadLane('right-lane')
     player.playing = true
-    
     player.score = 0
-    // player.x = parseInt(playerCar.offsetLeft) 
-
     createBlockerCars('blocker-cars')
-    
     window.requestAnimationFrame(loop);
 })
 
@@ -33,7 +29,8 @@ var startGame = popUp[0].addEventListener('click', function(){
 
 var keyDown = document.addEventListener('keydown',function(e){
     e.preventDefault();
-    // keys[e.key] = true
+    keys[e.key] = true
+    // console.log(e.key)
 })
 
 var keyUp = document.addEventListener('keyup',function(e){
@@ -61,11 +58,9 @@ function loop(){
         score.innerHTML = 'Score: ' + player.score + '<br/> Speed: ' + player.speed
 
         if (player.score >= pointsBefore+20){
-
             player.speed += 1
             pointsBefore = player.score
         }
-
         if(keys.ArrowRight && player.x < roadBoundingArea.width - playerCar.offsetWidth){
             
             player.x += 5
