@@ -58,7 +58,7 @@
     width: 150px;
 }
 
-#pop-up{
+.pop-up{
     border-radius: 15px;
     line-height: 25px;
     margin: 30px;
@@ -74,7 +74,7 @@
     color: aquamarine;
 }
 
-#pop-up:hover{
+.pop-up:hover{
     background-color: rgb(88 55 55);
     color: white;
     cursor: pointer;
@@ -104,5 +104,12 @@
     background-size: cover; 
 }
 
+#invisible{
+    display: none;
+}
+
+#visible{
+    display: block;
+}
 
 

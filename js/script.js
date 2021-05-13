@@ -3,33 +3,33 @@ var keys = {
     ArrowRight : false,
 }
 
-var player = { score: 0}
+var player = { playing: false, score: 0}
 var score = document.getElementById('score')
-var popUp = document.getElementById('pop-up')
+var popUp = document.getElementsByClassName('pop-up')
 var playerCar =  document.createElement('div')
 playerCar.className = 'player-car'
 var road = document.getElementById('road')
 var roadBoundingArea = road.getBoundingClientRect()
 
 // createBlockerCars('blocker-cars')
+console.log('pp',popUp)
+var startGame = popUp[0].addEventListener('click', function(){
 
-var startGame = popUp.addEventListener('click', function(){
-    popUp.style.display = 'none'
+    popUp[0].id = 'invisible'
+    road.innerHTML = ''
+    createRoadLane('left-lane')
+    createRoadLane('right-lane')
+    // road.appendChild(playerCar)
+    // var road = document.getElementById('road')
+    // popUp.style.display = 'none'
+    player.playing = true
     
     player.score = 0
-    // console.log('area',roadBoundingArea)
-    // road.appendChild(playerCar)
-    // var roadSections = document.getElementsByClassName('road-section')
-    // roadSections[1].appendChild(playerCar)
-    // console.log('pos',playerCar.offsetLeft)
-    // console.log('pos2',playerCar.offsetTop)
     player.x = playerCar.offsetLeft
-    // player.y = playerCar.offsetTop
-    // console.log('gg',player)
+
     createBlockerCars('blocker-cars')
-    // road.appendChild(blockerCars) 
     
-    loop()
+    window.requestAnimationFrame(loop);
 })
 
 
@@ -49,35 +49,40 @@ var keyUp = document.addEventListener('keyup',function(e){
 })
 
 
-createRoadLane('left-lane')
-createRoadLane('right-lane')
+// createRoadLane('left-lane')
+// createRoadLane('right-lane')
 
 function loop(){
-    window.requestAnimationFrame(loop);
+    
+    if (player.playing){
+        window.requestAnimationFrame(loop);
 
-    score.innerHTML = 'Score: ' + player.score++
-    // console.log('score', player.score++)
-    // console.log('score', player.score++)
-    road.appendChild(playerCar)
-    // road.appendChild(blockerCars) 
-    // checkCollision(playerCar, )
-    moveLane('left-lane')
-    moveLane('right-lane')
-    moveBlockerCars('blocker-cars')
-    // console.log('hete')
-    if(keys.ArrowRight && player.x < roadBoundingArea.width - playerCar.offsetWidth){
         
-        player.x += 5
-        playerCar.style.left = player.x + 'px'
-        // console.log('p',player.x) 
-    }
+        score.innerHTML = 'Score: ' + ++player.score
+        // console.log('score', player.score++)
+        // console.log('score', player.score++)
+        road.appendChild(playerCar)
+        // road.appendChild(playerCar)
+        // road.appendChild(blockerCars) 
+        // checkCollision(playerCar, )
+        moveLane('left-lane')
+        moveLane('right-lane')
+        moveBlockerCars('blocker-cars')
+        // console.log('hete')
+        if(keys.ArrowRight && player.x < roadBoundingArea.width - playerCar.offsetWidth){
+            
+            player.x += 5
+            playerCar.style.left = player.x + 'px'
+            // console.log('p',player.x) 
+        }
 
 
 
-    if(keys.ArrowLeft && player.x > 0 ){
-        
-        player.x -= 5
-        playerCar.style.left = player.x + 'px'
-        // console.log('p',playerCar.style.right,'l',player.x) 
+        if(keys.ArrowLeft && player.x > 0 ){
+            
+            player.x -= 5
+            playerCar.style.left = player.x + 'px'
+            // console.log('p',playerCar.style.right,'l',player.x) 
+        }
     }
 }

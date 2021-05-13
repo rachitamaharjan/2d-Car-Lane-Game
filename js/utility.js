@@ -9,7 +9,7 @@ function distance(x1, y1, x2, y2){
 }
 
 function createRoadLane(classname){
-    for(i = 0; i < 4; i++){
+    for(i = -1; i < 3; i++){
         var roadLane = document.createElement('div')
         roadLane.className = classname
         roadLane.y = (i * 215)
@@ -50,8 +50,8 @@ function moveBlockerCars(classname){
     elements.forEach(element => {
 
         if(checkCollision(playerCar, element)){
-            console.log('Game over!')
-            player.score = 0
+            var finalScore = player.score
+            gameOver(finalScore)
         }
 
         if(element.y > 800){
@@ -77,4 +77,12 @@ function checkCollision(car1, car2){
         return 0
     }
     else return 1
+}
+
+function gameOver(finalScore){
+    player.playing = false
+    popUp[0].id = 'visible'
+    popUp[0].innerHTML = '<b>Game over!</b> <br/> Final score: <span class = "display-key"> '+ finalScore + '</span><br/> Click to Play Again!'
+    console.log('Game over! Final score:', finalScore)
+    player.score = 0    
 }
