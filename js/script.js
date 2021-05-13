@@ -1,32 +1,27 @@
 var keys = {
-    ArrowLeft : false,
-    ArrowRight : false,
+    Space : false,
 }
 
 var player = { playing: false, score: 0, speed: 5,}
 var pointsBefore = player.score
 var score = document.getElementById('score')
 var popUp = document.getElementsByClassName('pop-up')
-var playerCar =  document.createElement('div')
-playerCar.className = 'player-car'
-var road = document.getElementById('road')
-var roadBoundingArea = road.getBoundingClientRect()
+var playerBird =  document.createElement('div')
+playerBird.className = 'player-bird'
+var gameArea = document.getElementById('game-area')
+// var roadBoundingArea = road.getBoundingClientRect()
 
 var startGame = popUp[0].addEventListener('click', function(){
 
     popUp[0].id = 'invisible'
-    player.speed = 5
-    road.innerHTML = ''
-    createRoadLane('left-lane')
-    createRoadLane('right-lane')
+    // player.speed = 5
+    gameArea.innerHTML = ''
+    // createRoadLane('left-lane')
+    // createRoadLane('right-lane')
     player.playing = true
     player.score = 0
-    createBlockerCars('blocker-cars')
+    createPipes('blocker-pipes')
     window.requestAnimationFrame(loop);
-
-    // console.log('ll',playerCar.getBoundingClientRect())
-    // playerCar.left = playerCar.offsetLeft
-    // console.log('l',playerCar.left)
 })
 
 
@@ -48,43 +43,34 @@ var keyUp = document.addEventListener('keyup',function(e){
 // createRoadLane('right-lane')
 
 function loop(){
-    player.x = parseInt(playerCar.offsetLeft) 
+    // player.x = parseInt(playerCar.offsetLeft) 
 
     
     if (player.playing){
 
         window.requestAnimationFrame(loop);
-        road.appendChild(playerCar)
-        moveLane('left-lane')
-        moveLane('right-lane')
-        moveBlockerCars('blocker-cars')
+        moveBase()
+        gameArea.appendChild(playerBird)
+        // moveLane('left-lane')
+        // moveLane('right-lane')
+        // moveBlockerCars('blocker-cars')
 
-        score.innerHTML = 'Score: ' + player.score + '<br/> Speed: ' + player.speed
+        // score.innerHTML = 'Score: ' + player.score + '<br/> Speed: ' + player.speed
 
-        if (player.score >= pointsBefore+20){
-            player.speed += 1
-            pointsBefore = player.score
-        }
-        if(keys.ArrowRight && player.x < roadBoundingArea.width - playerCar.offsetWidth){
+        // if (player.score >= pointsBefore+20){
+        //     player.speed += 1
+        //     pointsBefore = player.score
+        // }
+        // if(keys.ArrowRight && player.x < roadBoundingArea.width - playerCar.offsetWidth){
             
-            player.x += 35
-            if (player.x > roadBoundingArea.width - playerCar.offsetWidth){
-                player.x -= 35
-            }
-            else{
-                playerCar.style.left = player.x + 'px'
-            }
-        }
+        //     player.x += 35
+        //     if (player.x > roadBoundingArea.width - playerCar.offsetWidth){
+        //         player.x -= 35
+        //     }
+        //     else{
+        //         playerCar.style.left = player.x + 'px'
+        //     }
+        // }
 
-        if(keys.ArrowLeft && player.x > 0 ){
-            
-            player.x -= 35
-            if (player.x < 0){
-                player.x += 35
-            }
-            else{
-                playerCar.style.left = player.x + 'px'
-            }
-        }
     }
 }

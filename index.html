@@ -4,26 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2d Car Lane Game</title>
+    <title>Flappy Bird</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="main-container-wrapper">
         <div class="main-container clearfix">
-            <div id="road">
+            <div id="game-area">
             </div>
             <div id = "score"></div>
             <div class = "pop-up">
                 Click to Start the Game<br/>
-                Press  <span class="display-key">'◄'</span> left arrow key to move left and <span class="display-key">'►'</span> right arrow key to move right<br/>
-                Save your car from colliding with another<br/>
+                Press  <span class="display-key">'Space'</span> key to flap upwards.
+                Try not to fall or hit the pipes!<br/>
             </div>
-            <!-- <div class = "pop-up">
-                Click to Start the Game<br/>
-                Press  <span class="display-key">'a'</span> key to move left and <span class="display-key">'d'</span> key to move right<br/>
-                Save your car from colliding with another<br/>
-            </div> -->
+            <div id="base"></div>
         </div>
     </div>
     <script src="js/utility.js"></script>
