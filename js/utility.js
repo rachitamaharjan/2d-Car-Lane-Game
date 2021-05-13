@@ -26,7 +26,8 @@ function createPipes(classname){
     // var bottomPipe = document.createElement('div')
     // bottomPipe.className = 'bottom-pipe'
     // topPipe.style.width = Math.floor((Math.random() 
-    for(i = 0; i < 2; i++){
+    // for( j = -1; j< 3; j++){
+        for(i = 0; i < 2; i++){
         var blockerPipes = document.createElement('div')
         blockerPipes.className = classname
         var height = Math.floor((Math.random() * mainContainer[0].offsetHeight/2 )+ 10)
@@ -46,7 +47,8 @@ function createPipes(classname){
         
         // blockerPipes.style.left = Math.floor(Math.random() * 300) + 'px'
         mainContainer[0].appendChild(blockerPipes) 
-    }
+        }
+    // }
 }
 
 function birdGravity(){
@@ -77,35 +79,17 @@ function birdGravity(){
             player.velocity = 0
             // playerBird.style.top =  playerBird.offsetHeight + 'px'
 
-            // console.log('g',playerBird.style.top)
         }
         
-        mainContainer[0].addEventListener('click', flapUp)
-
-        document.addEventListener('keypress', flapUp)
         
-        function flapUp(e){
-            // var timer = 0
-            // setInterval(function(){
-            //     playerBird.y --
-            // },2000)
-            // console.log('key',e.code)
-            // if(e.code == 'Space'){
-                // console.log('yes')
-                player.velocity += player.upward
-            //     playerBird.y += player.velocity
-
-            // playerBird.style.top =  player.velocity + 'px'
-            // }
-        }
         
     // },300)
 
 
 
         // playerBird.style.top = playerBird.y + 'px'
-    // console.log('top',playerBird.style.top)
 }
+
 // var base = document.getElementById('base')
     // console.log('base.x',base.getBoundingClientRect())
 //     base.style.right = '10px'
@@ -142,13 +126,11 @@ function moveBase(){
 
 
 //         if((element.getBoundingClientRect().bottom >= roadBoundingArea.width - range) && (element.getBoundingClientRect().bottom <= roadBoundingArea.width + range) ){
-//             console.log('score pluss', element.bottom, roadBoundingArea.width)
 //         }
 
 //         if(element.y > 800){
 //             element.y -= 850
 //             var position = carPosition[Math.floor(Math.random() * carPosition.length)]
-//             // console.log('pos',Math.floor(Math.random() * carPosition.length))
 //             element.style.left = position + 'px'
 //             // element.style.left = Math.floor(Math.random() * 400) + 'px'
 
@@ -162,7 +144,6 @@ function moveBase(){
 // function checkCollision(car1, car2){
 //     playerPos = car1.getBoundingClientRect()
 //     blockerPos = car2.getBoundingClientRect()
-//     // console.log('l',playerPos,blockerPos)
     
 //     if ((playerPos.top > blockerPos.bottom) || (playerPos.bottom < blockerPos.top) || (playerPos.right < blockerPos.left) || (playerPos.left > blockerPos.right)){
 //         return 0

@@ -2,7 +2,7 @@ var keys = {
     Space : false,
 }
 
-var player = { playing: false, score: 0, speed: 5, gravity: 0.5, velocity: 0, upward: -0.1}
+var player = { playing: false, score: 0, speed: 5, gravity: 0.5, velocity: 0, upward: -10}
 var pointsBefore = player.score
 var score = document.getElementById('score')
 var popUp = document.getElementsByClassName('pop-up')
@@ -22,12 +22,26 @@ var startGame = popUp[0].addEventListener('click', function(){
     player.playing = true
     player.score = 0
     createPipes('blocker-pipes')
+    gameArea.appendChild(playerBird)
+
     
     // playerBird.y = playerBird.offsetTop
     window.requestAnimationFrame(loop);
 })
 
+mainContainer[0].addEventListener('click', flapUp)
 
+    document.addEventListener('keypress', flapUp)
+    function flapUp(e){
+        // if(e.code == 'Space'){
+            playerBird.y = playerBird.offsetTop
+            // console.log('insideevent handler', playerBird.y)
+            player.velocity += player.upward
+            playerBird.y += player.velocity
+            playerBird.style.top =  playerBird.y + 'px'
+            console.log('insideevent handler', player.velocity,playerBird.y, playerBird.style.top)
+        // }
+    }
 
 // var keyDown = document.addEventListener('keydown',function(e){
 //     e.preventDefault();
@@ -56,7 +70,7 @@ function loop(){
 
         window.requestAnimationFrame(loop);
         moveBase()
-        gameArea.appendChild(playerBird)
+        // gameArea.appendChild(playerBird)
         birdGravity()
         // moveLane('left-lane')
         // moveLane('right-lane')

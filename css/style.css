@@ -101,7 +101,7 @@
 .player-bird{
     position: absolute;
     top: 50%;
-    left: 50px;
+    left: 150px;
     background-image: url('../assets/yellowbird-midflap.png');
     height: 24px;
     width: 34px;
