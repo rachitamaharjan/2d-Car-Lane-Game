@@ -2,7 +2,7 @@ var keys = {
     Space : false,
 }
 
-var player = { playing: false, score: 0, speed: 5, gravity: 0.5, velocity: 0, upward: -10}
+var player = { playing: false, score: 0, speed: 5, gravity: 0.5, velocity: 0, upward: -10, highScore: getHighScore()}
 var pointsBefore = player.score
 var score = document.getElementById('score')
 var popUp = document.getElementsByClassName('pop-up')
@@ -34,7 +34,6 @@ mainContainer[0].addEventListener('click', flapUp)
 
 document.addEventListener('keypress', flapUp)
 function flapUp(e){
-    // if(e.code == 'Space'){
         playerBird.y = playerBird.offsetTop
         player.velocity += player.upward
         playerBird.y += player.velocity
@@ -46,38 +45,16 @@ function loop(){
     var blockerPipes = document.getElementsByClassName('blocker-pipes')
     
     if (player.playing){
-        // playerBird.y = playerBird.offsetTop
-
         window.requestAnimationFrame(loop);
         moveBase()
         birdGravity()
         movePipes('pipe-row1',blockerPipes[0].x)
         movePipes('pipe-row2',blockerPipes[1].x)
         movePipes('pipe-row3',blockerPipes[2].x)
-        // moveLane('left-lane')
-        // moveLane('right-lane')
-        // moveBlockerCars('blocker-cars')
-
-        // document.addEventListener('keypress', function(e){
-        //     // var timer = 0
-        //     // setInterval(function(){
-        //     //     playerBird.y --
-        //     // },2000)
-        //     // console.log('key',e.code)
-        //     if(e.code == 'Space'){
-        //         console.log('yes')
-        //         player.velocity += player.upward
-        //     //     playerBird.y += player.velocity
-
-        //     // playerBird.style.top =  playerBird.y + 'px'
-        //     }
-
-            
-        // })
 
         score.innerHTML = 'Score: ' + player.score + '<br/> Speed: ' + player.speed
 
-        if (player.score >= pointsBefore+20){
+        if (player.score >= pointsBefore + 20){
             player.speed += 1
             pointsBefore = player.score
         }
