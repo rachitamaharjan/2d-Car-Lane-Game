@@ -38,6 +38,7 @@ function birdGravity(){
             playerBird.y = parseInt(mainContainer[0].offsetHeight)
             player.velocity = 0
             playerBird.style.top = (parseInt(mainContainer[0].offsetHeight) - playerBird.offsetHeight) + 'px'
+            playerBird.style.transform = "rotate(90deg)"
             gameOver()
         }
 
