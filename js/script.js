@@ -30,7 +30,7 @@ var startGame = popUp[0].addEventListener('click', function(){
     createPipeRow('pipe-row3')
 
     mainContainer[0].appendChild(playerBird)
-
+    playerBird.style.transform = "unset"
     window.requestAnimationFrame(loop);
 })
 
