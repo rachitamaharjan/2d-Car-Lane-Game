@@ -43,7 +43,7 @@ function createPipeRow(classname){
             var blockerPipes = document.createElement('div')
             blockerPipes.className = 'blocker-pipes'
             blockerPipes.classList.add(classname)
-            var height = Math.floor((Math.random() * mainContainer[0].offsetHeight/2 )+ 50)
+            var height = Math.floor((Math.random() * mainContainer[0].offsetHeight/3 )+ 100)
             // console.log('pos',Math.floor(Math.random() * carPosition.length))
             blockerPipes.style.height = height + 'px'
         if (i % 2 == 0){
@@ -151,7 +151,7 @@ function movePipes(classname){
             element.x += 1700
             // var position = Math.floor(Math.random() * 500)
             // element.style.left = element.x + 'px'
-            element.style.height = Math.floor((Math.random() * mainContainer[0].offsetHeight/2 )+ 50)
+            element.style.height = Math.floor((Math.random() * mainContainer[0].offsetHeight/3 )+ 100)
 
         }
 
