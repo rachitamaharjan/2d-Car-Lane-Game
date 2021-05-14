@@ -29,7 +29,8 @@ function createPipeRow(classname){
 function birdGravity(){
 
     setTimeout(function(){
-        
+        bird.goingDown = true
+        bird.goingUp = false
         player.velocity += player.gravity
         playerBird.y += player.velocity
         playerBird.style.top = playerBird.y + 'px'

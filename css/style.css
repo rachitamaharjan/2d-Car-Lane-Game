@@ -74,6 +74,18 @@
     background-size: cover; 
 }
 
+.bird-mid{
+    background-image: url('../assets/yellowbird-midflap.png');
+}
+
+.bird-up{
+    background-image: url('../assets/yellowbird-upflap.png');
+}
+
+.bird-down{
+    background-image: url('../assets/yellowbird-downflap.png');
+}
+
 .blocker-pipes{
     position: absolute;
     /* top: calc(100% - 90px);

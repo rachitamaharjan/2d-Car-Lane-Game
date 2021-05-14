@@ -2,6 +2,11 @@ var keys = {
     Space : false,
 }
 
+var bird = {
+    goingUp : false,
+    goingDown : false
+}
+
 var player = { playing: false, score: 0, speed: 5, gravity: 0.5, velocity: 0, upward: -10, highScore: getHighScore()}
 var pointsBefore = player.score
 var score = document.getElementById('score')
@@ -34,6 +39,8 @@ mainContainer[0].addEventListener('click', flapUp)
 
 document.addEventListener('keypress', flapUp)
 function flapUp(e){
+        bird.goingUp = true
+        bird.goingDown = false
         playerBird.y = playerBird.offsetTop
         player.velocity += player.upward
         playerBird.y += player.velocity
@@ -51,6 +58,22 @@ function loop(){
         movePipes('pipe-row1',blockerPipes[0].x)
         movePipes('pipe-row2',blockerPipes[1].x)
         movePipes('pipe-row3',blockerPipes[2].x)
+
+        if(bird.goingUp == true){
+            document.getElementsByClassName('player-bird')[0].classList.add('bird-up')
+            document.getElementsByClassName('player-bird')[0].classList.remove('bird-down')
+            // document.getElementsByClassName('player-bird')[0].backgroundImage = '../assets/yellowbird-upflap.png'
+        }
+        else if(bird.goingDown == true){
+            document.getElementsByClassName('player-bird')[0].classList.add('bird-down')
+            document.getElementsByClassName('player-bird')[0].classList.remove('bird-up')
+            document.getElementsByClassName('player-bird')[0].backgroundImage = '../assets/yellowbird-downflap.png'
+        }
+        else{
+            document.getElementsByClassName('player-bird')[0].classList.add('bird-mid')
+            document.getElementsByClassName('player-bird')[0].classList.remove('bird-up')
+            document.getElementsByClassName('player-bird')[0].classList.remove('bird-down')
+        }
 
         score.innerHTML = 'Score: ' + player.score + '<br/> Speed: ' + player.speed
 
