@@ -2,7 +2,6 @@
     width: 1000px;
     height: 500px;
     margin-top: 100px;
-    /* background-color: aquamarine; */
     background-image: url('../assets/background.png');
     border: solid 15px;
     overflow: hidden;
@@ -28,50 +27,14 @@
 }
 
 
-/* #road{
-    display: flex;
-    position: relative;
-    background-color: rgb(48, 45, 45);
-    /* background-image: url('../assets/road.png'); */
-    /* height: 550px;  
-    width: calc(100%/2);
-    background-position: center; 
-    background-repeat: no-repeat; 
-    background-size: cover; 
-/* } */
-
-.road-section{
-    /* width: calc(100%/3);
-    height: 550px; */
-    /* background-color: brown; */
-}
-
-.left-lane, .right-lane{
-    background-color: white;
-    height: 120px;
-    width: 10px;
-    position: absolute;
-}
-
-.left-lane{
-    left: calc(100%/3 - 10px);
-}
-
-.right-lane{
-    right: calc(100%/3 - 10px);
-}
-
 #score{
     box-sizing: border-box;
     text-align: center;
     padding: 10px;
-    font-size: 20px;
+    font-size: 25px;
+    font-family: fantasy;
     color: white;
     border-radius: 15px;
-    /* position: absolute;
-    top: 20px;
-    right: 20px; */
-    background-color: brown;
     min-height: 40px;
     width: 150px;
 }
@@ -79,22 +42,23 @@
 .pop-up{
     border-radius: 15px;
     line-height: 25px;
-    margin: 30px;
-    /* transform: translateY(-300%); */
+    transform: translateY(25%);    
     padding: 20px;
     text-align: center;
-    background-color: black;
     color: white;
+    background-image: url(../assets/message.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 267px;
+    width: 184px;
 }
 
 .display-key{
     font-weight: bold;
-    color: aquamarine;
+    color: white;
 }
 
 .pop-up:hover{
-    background-color: rgb(88 55 55);
-    color: white;
     cursor: pointer;
 }
 
@@ -111,13 +75,11 @@
 }
 
 .blocker-pipes{
-    /* right: 0; */
     position: absolute;
     /* top: calc(100% - 90px);
     left: calc(50% - 45px/2); */
     height: 90px;
     width: 52px;
-    /* left: 0; */
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover; 
@@ -137,7 +99,6 @@
 
 .pipe-row3{
     position: absolute;
-
     /* right: 900px; */
     left: 500px;
 }
@@ -158,6 +119,17 @@
 
 #visible{
     display: block;
+    background-image: url(../assets/gameover.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    width: 192px;
+    height: 42px;
+    font-family: fantasy;
+    font-size: 25px;
+    line-height: 35px;
+    color: maroon;
+    font-weight: 900;
+    transform: translateY(75%);
 }
 
 

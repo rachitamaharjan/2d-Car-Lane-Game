@@ -174,7 +174,7 @@ function checkCollision(bird, pipe){
 function gameOver(finalScore){
     player.playing = false
     popUp[0].id = 'visible'
-    popUp[0].innerHTML = '<b>Game over!</b> <br/> Final score: <span class = "display-key"> '+ finalScore + '</span><br/> Click to Play Again!'
+    popUp[0].innerHTML = ' <br/> Final score: <span class = "display-key"> '+ finalScore + '</span><br/> Click to Play Again!'
     player.score = 0    
 }
 
