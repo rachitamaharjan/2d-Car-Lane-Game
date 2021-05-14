@@ -39,12 +39,15 @@ mainContainer[0].addEventListener('click', flapUp)
 
 document.addEventListener('keypress', flapUp)
 function flapUp(e){
-        bird.goingUp = true
-        bird.goingDown = false
-        playerBird.y = playerBird.offsetTop
-        player.velocity += player.upward
-        playerBird.y += player.velocity
-        playerBird.style.top =  playerBird.y + 'px'
+    bird.goingUp = true
+    bird.goingDown = false
+    document.getElementsByClassName('player-bird')[0].classList.add('bird-down')
+    document.getElementsByClassName('player-bird')[0].classList.remove('bird-up')
+    document.getElementsByClassName('player-bird')[0].classList.remove('bird-down')
+    playerBird.y = playerBird.offsetTop
+    player.velocity += player.upward
+    playerBird.y += player.velocity
+    playerBird.style.top =  playerBird.y + 'px'
 }
 
 function loop(){
@@ -70,7 +73,7 @@ function loop(){
             document.getElementsByClassName('player-bird')[0].backgroundImage = '../assets/yellowbird-downflap.png'
         }
         else{
-            document.getElementsByClassName('player-bird')[0].classList.add('bird-mid')
+            document.getElementsByClassName('player-bird')[0].classList.add('bird-down')
             document.getElementsByClassName('player-bird')[0].classList.remove('bird-up')
             document.getElementsByClassName('player-bird')[0].classList.remove('bird-down')
         }

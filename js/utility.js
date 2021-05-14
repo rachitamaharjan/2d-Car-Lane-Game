@@ -6,24 +6,23 @@ var mainContainer = document.getElementsByClassName('main-container')
 
 function createPipeRow(classname){
 
-        for(i = 0; i < 2; i++){
-            var blockerPipes = document.createElement('div')
-            blockerPipes.className = 'blocker-pipes'
-            blockerPipes.classList.add(classname)
-            var height = Math.floor((Math.random() * mainContainer[0].offsetHeight/3 )+ 80)
-            blockerPipes.style.height = height + 'px'
-        if (i % 2 == 0){
-            blockerPipes.y = 0
-            blockerPipes.classList.add('pipe-up')
-        }
-        else{
-            blockerPipes.classList.add('pipe-down')
-            blockerPipes.y = mainContainer[0].offsetHeight - parseInt(blockerPipes.style.height)
-        }
-        blockerPipes.style.top = blockerPipes.y + 'px'
-        gameArea.appendChild(blockerPipes) 
-        }
-    // }
+    for(i = 0; i < 2; i++){
+        var blockerPipes = document.createElement('div')
+        blockerPipes.className = 'blocker-pipes'
+        blockerPipes.classList.add(classname)
+        var height = Math.floor((Math.random() * mainContainer[0].offsetHeight/3 )+ 80)
+        blockerPipes.style.height = height + 'px'
+    if (i % 2 == 0){
+        blockerPipes.y = 0
+        blockerPipes.classList.add('pipe-up')
+    }
+    else{
+        blockerPipes.classList.add('pipe-down')
+        blockerPipes.y = mainContainer[0].offsetHeight - parseInt(blockerPipes.style.height)
+    }
+    blockerPipes.style.top = blockerPipes.y + 'px'
+    gameArea.appendChild(blockerPipes) 
+    }
 }
 
 function birdGravity(){
@@ -85,8 +84,6 @@ function movePipes(classname){
 
         if(element.x < 0){
             element.x += 1700
-            // var position = Math.floor(Math.random() * 500)
-            // element.style.left = element.x + 'px'
             element.style.height = Math.floor((Math.random() * mainContainer[0].offsetHeight/3 )+ 80)
         }
 
@@ -111,7 +108,6 @@ function gameOver(){
         player.highScore = player.score
     }
     storeHighScore()
-    // var highScore = getHighScore()
     player.playing = false
     popUp[0].id = 'visible'
     popUp[0].innerHTML = ' <br/> Final score: <span class = "display-key"> '+ finalScore + '</span><br/> High score: <span class = "display-key"> '+ player.highScore + '</span><br/> Click to Play Again!'
