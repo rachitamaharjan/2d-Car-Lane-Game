@@ -10,7 +10,7 @@ function createPipeRow(classname){
             var blockerPipes = document.createElement('div')
             blockerPipes.className = 'blocker-pipes'
             blockerPipes.classList.add(classname)
-            var height = Math.floor((Math.random() * mainContainer[0].offsetHeight/3 )+ 100)
+            var height = Math.floor((Math.random() * mainContainer[0].offsetHeight/3 )+ 80)
             blockerPipes.style.height = height + 'px'
         if (i % 2 == 0){
             blockerPipes.y = 0
@@ -38,6 +38,7 @@ function birdGravity(){
             playerBird.y = parseInt(mainContainer[0].offsetHeight)
             player.velocity = 0
             playerBird.style.top = (parseInt(mainContainer[0].offsetHeight) - playerBird.offsetHeight) + 'px'
+            gameOver()
         }
 
         if(playerBird.y < 0){
@@ -74,11 +75,7 @@ function movePipes(classname){
         element.x = element.offsetLeft
 
         if(checkCollision(playerBird, element)){
-            var finalScore = player.score
-            if (player.score > player.highScore){
-                player.highScore = player.score
-            }
-            gameOver(finalScore)
+            gameOver()
         }
        
         if(isPassingOver(element)){
@@ -89,7 +86,7 @@ function movePipes(classname){
             element.x += 1700
             // var position = Math.floor(Math.random() * 500)
             // element.style.left = element.x + 'px'
-            element.style.height = Math.floor((Math.random() * mainContainer[0].offsetHeight/3 )+ 100)
+            element.style.height = Math.floor((Math.random() * mainContainer[0].offsetHeight/3 )+ 80)
         }
 
         element.x -= player.speed
@@ -107,7 +104,11 @@ function checkCollision(bird, pipe){
     else return 1
 }
 
-function gameOver(finalScore){
+function gameOver(){
+    var finalScore = player.score
+    if (player.score > player.highScore){
+        player.highScore = player.score
+    }
     storeHighScore()
     // var highScore = getHighScore()
     player.playing = false
